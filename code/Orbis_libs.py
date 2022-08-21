@@ -68,7 +68,7 @@ class IO_Display:
 
         x = 3
         dx = self.FONT_X
-        y = 20
+        y = 22
         dy = self.FONT_Y
 
         disp_gpio = []
@@ -96,7 +96,7 @@ class IO_Display:
                 y += dy
 
         x = 3
-        y = 52
+        y = 54
         disp_gpio.append(Label(self.FONT, text='OUT:', x=x, y=y, color=self.COLOR['Wht'], background_color=self.COLOR['Blk']))
         disp_group.append(disp_gpio[-1])
         x = 35
