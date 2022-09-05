@@ -125,16 +125,19 @@ class IO_Display:
             self.LAST_IO_MONITOR = now
 
 class Heartbeat:
-    def __init__(self):
+    def __init__(self, pin):
         # Configure LED
         try:
-            self.led = DigitalInOut(board.LED)
+            self.led = DigitalInOut(pin)
             self.led.direction = Direction.OUTPUT
         except Exception as e:
             print("Only one instance of Heartbeat supported")
         self.BLINK_ON_DURATION = 1
         self.BLINK_OFF_DURATION = 2
         self.LAST_BLINK_TIME = -1
+
+    def __del__(self):
+        self.led.value = False
 
     def update(self, now):
         # Heartbeat blink on the pico onboard LED

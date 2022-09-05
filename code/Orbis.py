@@ -95,7 +95,7 @@ for key in sorted(output):
     print("", end='\n')
 
 
-heart = Heartbeat()
+heart = Heartbeat(board.LED)
 mylog = log()
 
 while True:  # Loop as fast as possible, using clock scheduler to perform events.
@@ -103,13 +103,13 @@ while True:  # Loop as fast as possible, using clock scheduler to perform events
 
     # Heartbeat LED
     heart.update(now)
-    
+
     # io monitor
     iom.update(now, output)
 
     # Set print state to console.
     mylog.update(now)
-    
+
     # Check GPIO every scan through.
     for key in sorted(output):
         output[key]['input_state'] = True
