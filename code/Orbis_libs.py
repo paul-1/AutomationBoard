@@ -136,7 +136,7 @@ class Heartbeat:
         self.BLINK_OFF_DURATION = 2
         self.LAST_BLINK_TIME = -1
 
-    def __del__(self):
+    def stop(self):
         self.led.value = False
 
     def update(self, now):
